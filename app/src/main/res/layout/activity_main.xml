@@ -145,4 +145,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_face_down" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/new_game_button"
+        android:text="@string/new_game"
+        android:onClick="onNewGameClick"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
