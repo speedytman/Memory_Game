@@ -17,7 +17,7 @@ public class MemoryGame {
     }
 
     public void newGame() {
-        Log.d("Stuff", "New Game");
+        //Log.d("Stuff", "New Game");
         List<Integer> tempList = Arrays.asList(faceValues);
         Collections.shuffle(tempList);
         tempList.toArray(faceValues);
@@ -26,7 +26,7 @@ public class MemoryGame {
             for(int col = 0; col < GRID_COL; col++){
                 mCardGrid[row][col] = faceValues[position];
                 position++;
-                Log.d("Stuff", Integer.toString(mCardGrid[row][col]));
+                //Log.d("Stuff", Integer.toString(mCardGrid[row][col]));
             }
         }
     }
@@ -36,8 +36,27 @@ public class MemoryGame {
         return false;
     }
 
-    public void selectCard(int row, int col) {
-
+    public int getSelectCardValue(int row, int col) {
+        //Log.d("stuff", row + " " + col + " " + Integer.toString(mCardGrid[row][col]));
+        if(mCardGrid[row][col] == 1){
+            return 1;
+        }
+        if(mCardGrid[row][col] == 2){
+            return 2;
+        }
+        if(mCardGrid[row][col] == 3){
+            return 3;
+        }
+        if(mCardGrid[row][col] == 4){
+            return 4;
+        }
+        if(mCardGrid[row][col] == 5){
+            return 5;
+        }
+        if(mCardGrid[row][col] == 6){
+            return 6;
+        }
+        return 0;
     }
 
     public boolean isGameOver() {
