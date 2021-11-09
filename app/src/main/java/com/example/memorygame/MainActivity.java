@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private MemoryGame mGame;
     private GridLayout mCardGrid;
     private int flipCount = 0;
+    private int tempButtonIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
             int buttonIndex = mCardGrid.indexOfChild(view);
             int row = buttonIndex / MemoryGame.GRID_COL;
             int col = buttonIndex % MemoryGame.GRID_COL;
+            tempButtonIndex = buttonIndex;
 
             //Log.d("stuff", "Index" + buttonIndex + " Row" + row + " Col" + col);
 
@@ -92,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
             int selectedCardFace = mGame.getSelectCardValue(row, col);
 
             ImageButton card = (ImageButton) mCardGrid.getChildAt(buttonIndex);
+            ImageButton previousCard = (ImageButton) mCardGrid.getChildAt(buttonIndex);
 
             //if(card.getDrawable().getConstantState() != getResources().getDrawable(R.drawable.ic_face_down).getConstantState()){
             //Log.d("Stuff", "I AM HERE!");
@@ -115,11 +118,9 @@ public class MainActivity extends AppCompatActivity {
                 card.setImageResource(R.drawable.ic_face_six);
             }
 
-            if(mGame.isGameOver()){
-                //Toast.makeText(this, R.string.congrats, Toast.LENGTH_SHORT).show()
-            }
-            else{
-                flipCount = 0;
+            if(!mGame.doCardsMatch()){
+                card.setImageResource(R.drawable.ic_face_down);
+                previousCard.setImageResource(R.drawable.ic_face_down);
             }
         }
 

@@ -10,9 +10,13 @@ public class MemoryGame {
     public static final int GRID_COL = 3;
     public static final int GRID_ROW = 4;
 
+
     private final int[][] mCardGrid;
     private final boolean[][] mCardFlippedGrid;
     private Integer[] faceValues = {1,1,2,2,3,3,4,4,5,5,6,6};
+    private int tempRow;
+    private int tempCol;
+
     public MemoryGame() {
         mCardGrid = new int[GRID_ROW][GRID_COL];
         mCardFlippedGrid = new boolean[GRID_ROW][GRID_COL];
@@ -36,10 +40,21 @@ public class MemoryGame {
 
 
     public boolean doCardsMatch() {
+        int cardCount = 0;
+
         for(int row = 0; row < GRID_ROW; row++){
             for(int col = 0; col < GRID_COL; col++){
                 if(mCardFlippedGrid[row][col]){
-
+                    cardCount++;
+                    if(cardCount < 2) {
+                        tempRow = row;
+                        tempCol = col;
+                    }
+                    if(cardCount == 2){
+                        if(mCardGrid[row][col] == mCardGrid[tempCol][tempRow]){
+                            return true;
+                        }
+                    }
                 }
             }
         }
