@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     private MemoryGame mGame;
     private GridLayout mCardGrid;
+    private int flipCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,41 +48,81 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onCardClick(View view) {
-        int buttonIndex = mCardGrid.indexOfChild(view);
-        int row = buttonIndex / MemoryGame.GRID_COL;
-        int col = buttonIndex % MemoryGame.GRID_COL;
+        flipCount++;
+        if(flipCount < 2){
+            int buttonIndex = mCardGrid.indexOfChild(view);
+            int row = buttonIndex / MemoryGame.GRID_COL;
+            int col = buttonIndex % MemoryGame.GRID_COL;
 
-        //Log.d("stuff", "Index" + buttonIndex + " Row" + row + " Col" + col);
+            //Log.d("stuff", "Index" + buttonIndex + " Row" + row + " Col" + col);
 
-        int selectedCardFace = mGame.getSelectCardValue(row, col);
+            int selectedCardFace = mGame.getSelectCardValue(row, col);
 
-        ImageButton card = (ImageButton) mCardGrid.getChildAt(buttonIndex);
+            ImageButton card = (ImageButton) mCardGrid.getChildAt(buttonIndex);
 
-        //if(card.getDrawable().getConstantState() != getResources().getDrawable(R.drawable.ic_face_down).getConstantState()){
+            //if(card.getDrawable().getConstantState() != getResources().getDrawable(R.drawable.ic_face_down).getConstantState()){
             //Log.d("Stuff", "I AM HERE!");
-        //}
-        if(selectedCardFace == 1){
-            card.setImageResource(R.drawable.ic_face_one);
+            //}
+            if(selectedCardFace == 1){
+                card.setImageResource(R.drawable.ic_face_one);
+            }
+            if(selectedCardFace == 2){
+                card.setImageResource(R.drawable.ic_face_two);
+            }
+            if(selectedCardFace == 3){
+                card.setImageResource(R.drawable.ic_face_three);
+            }
+            if(selectedCardFace == 4){
+                card.setImageResource(R.drawable.ic_face_four);
+            }
+            if(selectedCardFace == 5){
+                card.setImageResource(R.drawable.ic_face_five);
+            }
+            if(selectedCardFace == 6){
+                card.setImageResource(R.drawable.ic_face_six);
+            }
         }
-        if(selectedCardFace == 2){
-            card.setImageResource(R.drawable.ic_face_two);
-        }
-        if(selectedCardFace == 3){
-            card.setImageResource(R.drawable.ic_face_three);
-        }
-        if(selectedCardFace == 4){
-            card.setImageResource(R.drawable.ic_face_four);
-        }
-        if(selectedCardFace == 5){
-            card.setImageResource(R.drawable.ic_face_five);
-        }
-        if(selectedCardFace == 6){
-            card.setImageResource(R.drawable.ic_face_six);
+        if(flipCount == 2){
+            int buttonIndex = mCardGrid.indexOfChild(view);
+            int row = buttonIndex / MemoryGame.GRID_COL;
+            int col = buttonIndex % MemoryGame.GRID_COL;
+
+            //Log.d("stuff", "Index" + buttonIndex + " Row" + row + " Col" + col);
+
+            int selectedCardFace = mGame.getSelectCardValue(row, col);
+
+            ImageButton card = (ImageButton) mCardGrid.getChildAt(buttonIndex);
+
+            //if(card.getDrawable().getConstantState() != getResources().getDrawable(R.drawable.ic_face_down).getConstantState()){
+            //Log.d("Stuff", "I AM HERE!");
+            //}
+            if(selectedCardFace == 1){
+                card.setImageResource(R.drawable.ic_face_one);
+            }
+            if(selectedCardFace == 2){
+                card.setImageResource(R.drawable.ic_face_two);
+            }
+            if(selectedCardFace == 3){
+                card.setImageResource(R.drawable.ic_face_three);
+            }
+            if(selectedCardFace == 4){
+                card.setImageResource(R.drawable.ic_face_four);
+            }
+            if(selectedCardFace == 5){
+                card.setImageResource(R.drawable.ic_face_five);
+            }
+            if(selectedCardFace == 6){
+                card.setImageResource(R.drawable.ic_face_six);
+            }
+
+            if(mGame.isGameOver()){
+                //Toast.makeText(this, R.string.congrats, Toast.LENGTH_SHORT).show()
+            }
+            else{
+                flipCount = 0;
+            }
         }
 
-        if(mGame.isGameOver()){
-            //Toast.makeText(this, R.string.congrats, Toast.LENGTH_SHORT).show()
-        }
     }
 
 }
