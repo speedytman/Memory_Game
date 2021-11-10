@@ -14,6 +14,7 @@ public class MemoryGame {
     private final int[][] mCardGrid;
     private final boolean[][] mCardFlippedGrid;
     private Integer[] faceValues = {1,1,2,2,3,3,4,4,5,5,6,6};
+    private int cardCount = 0;
     private int tempRow;
     private int tempCol;
 
@@ -40,20 +41,22 @@ public class MemoryGame {
 
 
     public boolean doCardsMatch() {
-        int cardCount = 0;
-
         for(int row = 0; row < GRID_ROW; row++){
             for(int col = 0; col < GRID_COL; col++){
                 if(mCardFlippedGrid[row][col]){
                     cardCount++;
+                    //Log.d("stuff", "Card count: " + cardCount);
                     if(cardCount < 2) {
                         tempRow = row;
                         tempCol = col;
                     }
                     if(cardCount == 2){
-                        if(mCardGrid[row][col] == mCardGrid[tempCol][tempRow]){
+                        //Log.d("stuff", "Previous Card: " + mCardGrid[tempRow][tempCol] + " Current Card: " + mCardGrid[row][col]);
+                        if(mCardGrid[row][col] == mCardGrid[tempRow][tempCol]){
+                            Log.d("stuff", "Made it");
                             return true;
                         }
+                        cardCount = 0;
                     }
                 }
             }
