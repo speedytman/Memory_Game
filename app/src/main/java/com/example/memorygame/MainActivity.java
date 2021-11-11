@@ -13,6 +13,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.time.Clock;
+
 public class MainActivity extends AppCompatActivity {
 
     private MemoryGame mGame;
@@ -21,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private int tempRow;
     private int tempCol;
     private int tempButtonIndex;
-    public int counter = 0;
+    private TextView clockTimer;
+    private int timer = 6000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +40,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void startGame() {
         setFaceValues();
+
+        setTime(clockTimer);
+        startClock(timer);
         mGame.newGame();
     }
+
+
 
     private void setFaceValues() {
         for (int i = 0; i < 12; i++) {
@@ -47,24 +55,27 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void setTime(TextView clockTimer) {
+        int sec =  timer / 100;
 
-    final TextView clockTimer = findViewById(R.id.clockTimer);
+        clockTimer.setText(" " + String.format("%02d, min"));
+    }
 
-    private void runCountdown() {
-        CountDownTimer countDownTimer = new CountDownTimer(60000, 1000) {
+
+    private void startClock(int sec) {
+        CountDownTimer countDownTimer = new CountDownTimer(60000, 1000)
+        {
+            @Override
             public void onTick(long millisUntilFinished) {
                 clockTimer.setText("second remaining: " + millisUntilFinished / 1000);
-
-
             }
 
             @Override
             public void onFinish() {
                 clockTimer.setText("Your time is up!");
             }
-        };
+        } .start();
 
-        CountDownTimer timer = countDownTimer.start();
     }
 
 
