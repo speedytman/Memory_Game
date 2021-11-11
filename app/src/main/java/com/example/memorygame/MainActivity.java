@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private int tempRow;
     private int tempCol;
     private int tempButtonIndex;
-    public int counter;
+    public int counter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
