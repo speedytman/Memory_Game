@@ -1,18 +1,17 @@
 package com.example.memorygame;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.media.Image;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,15 +21,17 @@ public class MainActivity extends AppCompatActivity {
     private int tempRow;
     private int tempCol;
     private int tempButtonIndex;
+    public int counter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mCardGrid = findViewById(R.id.card_grid);
 
+        mCardGrid = findViewById(R.id.card_grid);
         mGame = new MemoryGame();
+
         startGame();
     }
 
@@ -40,11 +41,34 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setFaceValues() {
-        for(int i = 0; i < 12; i++){
+        for (int i = 0; i < 12; i++) {
             ImageButton card = (ImageButton) mCardGrid.getChildAt(i);
             card.setImageResource(R.drawable.ic_face_down);
         }
     }
+
+
+    final TextView clockTimer = findViewById(R.id.clockTimer);
+
+    private void runCountdown() {
+        CountDownTimer countDownTimer = new CountDownTimer(60000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                clockTimer.setText("second remaining: " + millisUntilFinished / 1000);
+
+
+            }
+
+            @Override
+            public void onFinish() {
+                clockTimer.setText("Your time is up!");
+            }
+        };
+
+        CountDownTimer timer = countDownTimer.start();
+    }
+
+
+
 
 
     public void onNewGameClick(View view){
@@ -146,6 +170,12 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+    }
+
+    public void isGameOver() {
+        if (mGame.isGameOver()) {
+            Toast.makeText(this, R.string.congrats, Toast.LENGTH_SHORT).show();
+        }
     }
 
 }
