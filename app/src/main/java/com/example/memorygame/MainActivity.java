@@ -1,6 +1,8 @@
 package com.example.memorygame;
 
 
+import static android.os.CountDownTimer.*;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -13,6 +15,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.time.Clock;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
     private int tempRow;
     private int tempCol;
     private int tempButtonIndex;
-    private TextView clockTimer;
-    private int timer = 6000;
+
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,16 +37,33 @@ public class MainActivity extends AppCompatActivity {
 
 
         mCardGrid = findViewById(R.id.card_grid);
+        textView = findViewById(R.id.clockTimer);
         mGame = new MemoryGame();
 
         startGame();
+
+        final CountDownTimer countDownTimer = new CountDownTimer(60000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                NumberFormat f = new DecimalFormat("00");
+
+                long min = (millisUntilFinished / 60000) % 60;
+                long sec = (millisUntilFinished / 1000) % 60;
+
+                textView.setText(f.format(min) + ":" + f.format(sec));
+
+                }
+
+            public void onFinish() {
+                textView.setText("00:00");
+            }
+        }.start();
+
+
     }
 
     public void startGame() {
         setFaceValues();
 
-        setTime(clockTimer);
-        startClock(timer);
         mGame.newGame();
     }
 
@@ -55,35 +76,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void setTime(TextView clockTimer) {
-        int sec =  timer / 100;
-
-        clockTimer.setText(" " + String.format("%02d, min"));
-    }
-
-
-    private void startClock(int sec) {
-        CountDownTimer countDownTimer = new CountDownTimer(60000, 1000)
-        {
-            @Override
-            public void onTick(long millisUntilFinished) {
-                clockTimer.setText("second remaining: " + millisUntilFinished / 1000);
-            }
-
-            @Override
-            public void onFinish() {
-                clockTimer.setText("Your time is up!");
-            }
-        } .start();
-
-    }
-
 
 
 
 
     public void onNewGameClick(View view){
         startGame();
+
     }
 
     public void onCardClick(View view) {
