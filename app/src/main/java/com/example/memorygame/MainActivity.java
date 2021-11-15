@@ -100,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
             //Log.d("stuff", "Index" + buttonIndex + " Row" + row + " Col" + col);
 
             int selectedCardFace = mGame.getSelectCardValue(row, col);
+            mGame.markCardFlipped(row, col);
 
             ImageButton card = (ImageButton) mCardGrid.getChildAt(buttonIndex);
 
@@ -135,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
                 //Log.d("stuff", "Index" + buttonIndex + " Row" + row + " Col" + col);
 
                 int selectedCardFace = mGame.getSelectCardValue(row, col);
+                mGame.markCardFlipped(row, col);
                 int previousSelectedCardFace = mGame.getSelectCardValue(tempRow, tempCol);
 
                 ImageButton card = (ImageButton) mCardGrid.getChildAt(buttonIndex);
@@ -168,24 +170,26 @@ public class MainActivity extends AppCompatActivity {
                         public void run() {
                             card.setImageResource(R.drawable.ic_face_down);
                             previousCard.setImageResource(R.drawable.ic_face_down);
+                            mGame.markCardUnFlipped(row,col);
+                            mGame.markCardUnFlipped(tempRow,tempCol);
                         }
                     }, 1000);
-
+                    flipCount = 0;
                 }
-                flipCount = 0;
+                else{
+                    if (mGame.isGameOver()) {
+                        Toast.makeText(this, R.string.congrats, Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        flipCount = 0;
+                    }
+                }
             }
             else{
-                Log.d("stuff", "Try Again");
                 flipCount = 1;
             }
         }
 
-    }
-
-    public void isGameOver() {
-        if (mGame.isGameOver()) {
-            Toast.makeText(this, R.string.congrats, Toast.LENGTH_SHORT).show();
-        }
     }
 
 }

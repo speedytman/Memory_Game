@@ -39,6 +39,14 @@ public class MemoryGame {
         }
     }
 
+    public void markCardFlipped(int row, int col){
+        mCardFlippedGrid[row][col] = true;
+    }
+
+    public void markCardUnFlipped(int row, int col){
+        mCardFlippedGrid[row][col] = false;
+    }
+
 
     public boolean doCardsMatch() {
         for(int row = 0; row < GRID_ROW; row++){
@@ -67,27 +75,21 @@ public class MemoryGame {
     public int getSelectCardValue(int row, int col) {
         //Log.d("stuff", row + " " + col + " " + Integer.toString(mCardGrid[row][col]));
         if(mCardGrid[row][col] == 1){
-            mCardFlippedGrid[row][col] = true;
             return 1;
         }
         if(mCardGrid[row][col] == 2){
-            mCardFlippedGrid[row][col] = true;
             return 2;
         }
         if(mCardGrid[row][col] == 3){
-            mCardFlippedGrid[row][col] = true;
             return 3;
         }
         if(mCardGrid[row][col] == 4){
-            mCardFlippedGrid[row][col] = true;
             return 4;
         }
         if(mCardGrid[row][col] == 5){
-            mCardFlippedGrid[row][col] = true;
             return 5;
         }
         if(mCardGrid[row][col] == 6){
-            mCardFlippedGrid[row][col] = true;
             return 6;
         }
         return 0;
@@ -96,7 +98,7 @@ public class MemoryGame {
     public boolean isGameOver() {
         for(int row = 0; row < GRID_ROW; row++){
             for(int col = 0; col < GRID_COL; col++){
-                if(mCardFlippedGrid[row][col]){
+                if(!mCardFlippedGrid[row][col]){
                     return false;
                 }
             }
