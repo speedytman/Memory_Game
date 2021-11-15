@@ -3,22 +3,24 @@ package com.example.memorygame;
 
 import static android.os.CountDownTimer.*;
 
+import static com.example.memorygame.MemoryGame.GRID_COL;
+import static com.example.memorygame.MemoryGame.GRID_ROW;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.os.CountDownTimer;
+
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.GridLayout;
+import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.time.Clock;
 import java.util.Locale;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
     private int tempCol;
     private int tempButtonIndex;
 
-    private int seconds = 0;
-    private boolean running;
+    private int secs = 0;
+    private boolean isRunning;
     private boolean wasRunning;
     TextView textView;
 
@@ -46,9 +48,9 @@ public class MainActivity extends AppCompatActivity {
         startGame();
 
         if (savedInstanceState != null) {
-            seconds = savedInstanceState.getInt("seconds");
+            secs = savedInstanceState.getInt("seconds");
 
-            running = savedInstanceState.getBoolean("running");
+            isRunning = savedInstanceState.getBoolean("running");
 
             wasRunning = savedInstanceState.getBoolean("wasRunning");
         }
@@ -61,9 +63,9 @@ public class MainActivity extends AppCompatActivity {
             Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
         savedInstanceState
-                .putInt("seconds", seconds);
+                .putInt("seconds", secs);
         savedInstanceState
-                .putBoolean("running", running);
+                .putBoolean("running", isRunning);
         savedInstanceState
                 .putBoolean("wasRunning", wasRunning);
     }
@@ -72,8 +74,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause()
     {
         super.onPause();
-        wasRunning = running;
-        running = false;
+        wasRunning = isRunning;
+        isRunning = false;
     }
 
     @Override
@@ -81,18 +83,18 @@ public class MainActivity extends AppCompatActivity {
     {
         super.onResume();
         if (wasRunning) {
-            running = true;
+            isRunning = true;
         }
     }
 
     public void onClickStart(View view)
     {
-        running = true;
+        isRunning = true;
     }
 
     public void onClickStop(View view)
     {
-        running = false;
+        isRunning = false;
     }
 
 
@@ -113,20 +115,20 @@ public class MainActivity extends AppCompatActivity {
 
             public void run()
             {
-                int hours = seconds / 3600;
-                int minutes = (seconds % 3600) / 60;
-                int secs = seconds % 60;
+                int hours = secs / 3600;
+                int minutes = (secs % 3600) / 60;
+                int seconds = secs % 60;
 
                 String time
                         = String
                         .format(Locale.getDefault(),
                                 "%d:%02d:%02d", hours,
-                                minutes, secs);
+                                minutes, seconds);
 
                 timer.setText(time);
 
-                if (running) {
-                    seconds++;
+                if (isRunning) {
+                    secs++;
                 }
 
                 handler.postDelayed(this, 1000);
@@ -154,7 +156,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void onNewGameClick(View view){
-        startGame();
+        isRunning = false;
+        secs = 0;
+
 
     }
 
@@ -163,8 +167,8 @@ public class MainActivity extends AppCompatActivity {
         //Log.d("stuff", "Flip Count: " + flipCount);
         if(flipCount < 2){
             int buttonIndex = mCardGrid.indexOfChild(view);
-            int row = buttonIndex / MemoryGame.GRID_COL;
-            int col = buttonIndex % MemoryGame.GRID_COL;
+            int row = buttonIndex / GRID_COL;
+            int col = buttonIndex % GRID_COL;
             tempRow = row;
             tempCol = col;
             tempButtonIndex = buttonIndex;
@@ -201,8 +205,8 @@ public class MainActivity extends AppCompatActivity {
         }
         if(flipCount == 2){
             int buttonIndex = mCardGrid.indexOfChild(view);
-            int row = buttonIndex / MemoryGame.GRID_COL;
-            int col = buttonIndex % MemoryGame.GRID_COL;
+            int row = buttonIndex / GRID_COL;
+            int col = buttonIndex % GRID_COL;
             if(buttonIndex != tempButtonIndex) {
                 //Log.d("stuff", "First Index seen in 2nd if: " + tempButtonIndex);
 
