@@ -18,6 +18,7 @@ import android.widget.Toast;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.time.Clock;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
     private int tempCol;
     private int tempButtonIndex;
 
+    private int seconds = 0;
+    private boolean running;
+    private boolean wasRunning;
     TextView textView;
 
     @Override
@@ -37,28 +41,97 @@ public class MainActivity extends AppCompatActivity {
 
 
         mCardGrid = findViewById(R.id.card_grid);
-        textView = findViewById(R.id.clockTimer);
         mGame = new MemoryGame();
 
         startGame();
 
-        final CountDownTimer countDownTimer = new CountDownTimer(60000, 1000) {
-            public void onTick(long millisUntilFinished) {
-                NumberFormat f = new DecimalFormat("00");
+        if (savedInstanceState != null) {
+            seconds = savedInstanceState.getInt("seconds");
 
-                long min = (millisUntilFinished / 60000) % 60;
-                long sec = (millisUntilFinished / 1000) % 60;
+            running = savedInstanceState.getBoolean("running");
 
-                textView.setText(f.format(min) + ":" + f.format(sec));
+            wasRunning = savedInstanceState.getBoolean("wasRunning");
+        }
+        runTimer();
 
+    }
+
+    @Override
+    protected void onSaveInstanceState(
+            Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState
+                .putInt("seconds", seconds);
+        savedInstanceState
+                .putBoolean("running", running);
+        savedInstanceState
+                .putBoolean("wasRunning", wasRunning);
+    }
+
+    @Override
+    protected void onPause()
+    {
+        super.onPause();
+        wasRunning = running;
+        running = false;
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        if (wasRunning) {
+            running = true;
+        }
+    }
+
+    public void onClickStart(View view)
+    {
+        running = true;
+    }
+
+    public void onClickStop(View view)
+    {
+        running = false;
+    }
+
+
+    private void runTimer()
+    {
+
+        final TextView timer
+                = (TextView)findViewById(
+                R.id.timer);
+
+
+        final Handler handler
+                = new Handler();
+
+
+        handler.post(new Runnable() {
+            @Override
+
+            public void run()
+            {
+                int hours = seconds / 3600;
+                int minutes = (seconds % 3600) / 60;
+                int secs = seconds % 60;
+
+                String time
+                        = String
+                        .format(Locale.getDefault(),
+                                "%d:%02d:%02d", hours,
+                                minutes, secs);
+
+                timer.setText(time);
+
+                if (running) {
+                    seconds++;
                 }
 
-            public void onFinish() {
-                textView.setText("00:00");
+                handler.postDelayed(this, 1000);
             }
-        }.start();
-
-
+        });
     }
 
     public void startGame() {

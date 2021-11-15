@@ -2,4 +2,7 @@
     <string name="app_name">Memory Game</string>
     <string name="new_game">New Game</string>
     <string name="congrats">Good Game! Try again!</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="reset">Reset</string>
 </resources>
