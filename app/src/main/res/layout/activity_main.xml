@@ -100,42 +100,45 @@
             app:srcCompat="@drawable/ic_face_down" />
 
     </GridLayout>
-
-    <Button
-        android:id="@+id/new_game_button"
-        android:layout_width="0dp"
-        android:layout_weight="1"
+    <LinearLayout
+        android:id="@+id/btn_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:onClick="onNewGameClick"
-        android:text="@string/new_game"
-        android:layout_marginLeft="40dp"
-        app:layout_constraintTop_toBottomOf="@id/card_grid" />
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+        <Button
+            android:id="@+id/new_game_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="5dp"
+            android:onClick="onNewGameClick"
+            android:text="@string/new_game" />
 
 
-    <Button
-        android:id="@+id/stop_button"
-        android:layout_marginTop="10dp"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:onClick="onClickStop"
-        android:text="@string/stop"
-        android:layout_marginRight="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card_grid" />
+        <Button
+            android:id="@+id/stop_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onClickStop"
+            android:text="@string/stop"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:id="@+id/start_button"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:onClick="onClickStart"
-        android:text="@string/start"
-        android:layout_marginLeft="50dp"
-        app:layout_constraintEnd_toEndOf="@id/timer"
-        app:layout_constraintTop_toBottomOf="@id/card_grid" />
+        <Button
+            android:id="@+id/start_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:onClick="onClickStart"
+            android:text="@string/start"
+            app:layout_constraintEnd_toEndOf="@id/timer" />
+    </LinearLayout>
 
 
 
