@@ -25,8 +25,17 @@ public class HomeActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_FULLSCREEN);
     }
 
-    public void onStartButtonClick(View view){
+    public void onFillerButtonClick(View view){
+
+    }
+
+    public void onPlayButtonClick(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
+    public void onSettingsButtonClick(View view){
+
+    }
+
 }

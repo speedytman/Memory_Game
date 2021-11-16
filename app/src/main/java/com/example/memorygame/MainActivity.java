@@ -98,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
     public void onClickStart(View view)
     {
         isRunning = true;
+        runTimer();
     }
 
     public void onClickStop(View view)
@@ -167,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
         isRunning = false;
         secs = 0;
 
-
+        startGame();
     }
 
     public void onCardClick(View view) {
