@@ -96,9 +96,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void onClickStart(View view)
-    {
-        isRunning = true;
+    public void onClickStart(View view) {
+            isRunning = true;
+
     }
 
     public void onClickStop(View view)

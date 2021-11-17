@@ -7,4 +7,8 @@
     <string name="reset">Reset</string>
     <string name="home_play">Play</string>
     <string name="home_settings">Settings</string>
+    <string name="help_instructions">Flip over each card and find its match in the least amount of time to win!</string>
+    <string name="game_grid">Game Grid</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

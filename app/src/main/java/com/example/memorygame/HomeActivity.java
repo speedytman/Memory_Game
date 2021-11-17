@@ -25,7 +25,7 @@ public class HomeActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_FULLSCREEN);
     }
 
-    public void onFillerButtonClick(View view){
+    public void onHelpButtonClick(View view){
 
     }
 
