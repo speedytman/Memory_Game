@@ -7,13 +7,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 
 public class HomeActivity extends AppCompatActivity {
+
+    Button help_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+
+        help_button = findViewById(R.id.help_button);
+        help_button.setOnClickListener(this::onHelpButtonClick);
+
 
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(
@@ -26,6 +34,9 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void onHelpButtonClick(View view){
+
+        Intent intent = new Intent(this, HelpActivity.class);
+        startActivity(intent);
 
     }
 
