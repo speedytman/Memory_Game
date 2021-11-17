@@ -7,4 +7,5 @@
     <string name="reset">Reset</string>
     <string name="home_play">Play</string>
     <string name="home_settings">Settings</string>
+    <string name="help_text">Turn over cards by clicking on them. The goal is to find a matching pair and all cards must be matched.</string>
 </resources>
