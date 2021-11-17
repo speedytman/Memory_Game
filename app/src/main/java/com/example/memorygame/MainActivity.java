@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private MemoryGame mGame;
     private GridLayout mCardGrid;
     private int flipCount = 0;
+    private int totalFlips = 0;
     private int tempRow;
     private int tempCol;
     private int tempButtonIndex;
@@ -98,7 +99,6 @@ public class MainActivity extends AppCompatActivity {
     public void onClickStart(View view)
     {
         isRunning = true;
-        runTimer();
     }
 
     public void onClickStop(View view)
@@ -147,7 +147,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void startGame() {
         setFaceValues();
-
+        flipCount = 0;
+        totalFlips = 0;
         mGame.newGame();
     }
 
@@ -172,6 +173,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onCardClick(View view) {
+        if(totalFlips == 0){
+            isRunning = true;
+        }
+        totalFlips++;
         flipCount++;
         //Log.d("stuff", "Flip Count: " + flipCount);
         if(flipCount < 2){
@@ -264,7 +269,9 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else{
                     if (mGame.isGameOver()) {
+                        isRunning = false;
                         Toast.makeText(this, R.string.congrats, Toast.LENGTH_SHORT).show();
+                        flipCount = 0;
                     }
                     else{
                         flipCount = 0;
