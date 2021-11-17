@@ -7,13 +7,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 
 public class HomeActivity extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
 
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(
@@ -25,7 +29,10 @@ public class HomeActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_FULLSCREEN);
     }
 
-    public void onFillerButtonClick(View view){
+    public void onHelpButtonClick(View view){
+
+        Intent intent = new Intent(this, HelpActivity.class);
+        startActivity(intent);
 
     }
 

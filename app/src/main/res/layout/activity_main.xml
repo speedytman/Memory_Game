@@ -10,8 +10,8 @@
         android:id="@+id/timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/card_grid"
-        android:layout_marginBottom="560dp"
+        android:layout_above="@id/card_grid"
+        android:layout_marginBottom="640dp"
         android:gravity="center_horizontal"
         android:text="TextView"
         android:textAppearance="@android:style/TextAppearance.Medium"
@@ -33,7 +33,7 @@
         android:rowCount="4"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/timer">
 
         <ImageButton
             android:layout_marginRight="10dp"
