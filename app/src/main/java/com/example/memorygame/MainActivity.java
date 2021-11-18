@@ -8,6 +8,7 @@ import static com.example.memorygame.MemoryGame.GRID_ROW;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.os.Handler;
@@ -94,6 +95,12 @@ public class MainActivity extends AppCompatActivity {
         if (wasRunning) {
             isRunning = true;
         }
+    }
+
+    public void onBackHomeClick (View view) {
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
+
     }
 
     public void onClickStart(View view) {

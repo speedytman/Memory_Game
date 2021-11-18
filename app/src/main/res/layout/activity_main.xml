@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:clickable="true"
+        android:onClick="onBackHomeClick"
+        android:src="@drawable/ic_back_arrow"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-12dp"
+        tools:layout_editor_absoluteY="6dp" />
+
     <TextView
         android:id="@+id/timer"
         android:layout_width="wrap_content"
