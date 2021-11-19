@@ -8,6 +8,22 @@
     android:orientation="vertical"
     tools:context=".HomeActivity">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome to the Memory Game"
+        android:gravity="center"
+        android:fontFamily="monospace"
+        android:textAllCaps="true"
+        android:textSize="45dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:layout_marginBottom="75dp"
+
+        />
+
+
+
     <Button
         android:id="@+id/help_button"
         android:layout_width="130dp"
@@ -43,5 +59,7 @@
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@id/settings_button"
         android:layout_marginTop="20dp"/>
+
+
 
 </LinearLayout>
