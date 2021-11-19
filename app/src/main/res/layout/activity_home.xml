@@ -6,8 +6,9 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".HomeActivity">
+    tools:context=".HomeActivity"
 
+>
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
@@ -23,14 +24,6 @@
         />
 
 
-
-    <Button
-        android:id="@+id/help_button"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:onClick="onHelpButtonClick"
-        android:text="Help"
-        android:textSize="18sp"/>
     <Button
         android:id="@+id/play_button"
         android:layout_width="130dp"
@@ -40,25 +33,27 @@
         android:onClick="onPlayButtonClick"
         android:text="@string/home_play"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/help_button"
+        app:layout_constraintTop_toBottomOf="@id/settings_button"
         />
     <Button
         android:id="@+id/settings_button"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:onClick="onSettingsButtonClick"
         android:text="@string/home_settings"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/start_button"/>
+        app:layout_constraintTop_toBottomOf="@id/help_button"/>
     <Button
         android:id="@+id/help_button"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:onClick="onHelpClick"
+        android:onClick="onHelpButtonClick"
         android:text="Help"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/settings_button"
-        android:layout_marginTop="20dp"/>
+        android:textSize="18sp"/>
+
+
+
 
 
 
