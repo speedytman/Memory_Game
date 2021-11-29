@@ -9,6 +9,7 @@ import static com.example.memorygame.MemoryGame.GRID_ROW;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import android.os.Handler;
@@ -42,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        MediaPlayer game_music = MediaPlayer.create(MainActivity.this,R.raw.game_music);
+        game_music.start();
 
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(
@@ -164,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
     private void setFaceValues() {
         for (int i = 0; i < 12; i++) {
             ImageButton card = (ImageButton) mCardGrid.getChildAt(i);
-            card.setImageResource(R.drawable.ic_face_down);
+            card.setImageResource(R.drawable.ic_face_android);
         }
     }
 
@@ -266,8 +269,8 @@ public class MainActivity extends AppCompatActivity {
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         public void run() {
-                            card.setImageResource(R.drawable.ic_face_down);
-                            previousCard.setImageResource(R.drawable.ic_face_down);
+                            card.setImageResource(R.drawable.ic_face_android);
+                            previousCard.setImageResource(R.drawable.ic_face_android);
                             mGame.markCardUnFlipped(row,col);
                             mGame.markCardUnFlipped(tempRow,tempCol);
                         }

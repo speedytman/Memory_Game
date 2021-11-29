@@ -4,17 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/main_background"
+    >
+
 
     <ImageView
-        android:layout_width="100dp"
+        android:layout_width="50dp"
         android:layout_height="50dp"
         android:clickable="true"
         android:onClick="onBackHomeClick"
-        android:src="@drawable/ic_back_arrow"
+        android:src="@drawable/ic_back_button"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-12dp"
-        tools:layout_editor_absoluteY="6dp" />
+        tools:layout_editor_absoluteX="-50dp"
+        tools:layout_editor_absoluteY="dp" />
 
     <TextView
         android:id="@+id/timer"
@@ -36,80 +39,85 @@
 
     <GridLayout
         android:id="@+id/card_grid"
-        android:layout_width="270dp"
-        android:layout_height="500dp"
+        android:layout_width="298dp"
+        android:layout_height="486dp"
         android:layout_margin="40dp"
+        android:layout_marginTop="108dp"
         android:columnCount="3"
         android:rowCount="4"
+        app:layout_constraintHorizontal_bias="0.637"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/timer">
 
-        <ImageButton
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:onClick="onCardClick"
-            app:srcCompat="@drawable/ic_face_down" />
-
-        <ImageButton
-            android:onClick="onCardClick"
-            app:srcCompat="@drawable/ic_face_down" />
-
-        <ImageButton
-            android:layout_marginLeft="10dp"
-            android:layout_marginBottom="10dp"
-            android:onClick="onCardClick"
-            app:srcCompat="@drawable/ic_face_down" />
 
         <ImageButton
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:onClick="onCardClick"
-            app:srcCompat="@drawable/ic_face_down" />
+            app:srcCompat="@drawable/ic_face_android" />
 
         <ImageButton
             android:onClick="onCardClick"
-            app:srcCompat="@drawable/ic_face_down" />
+            app:srcCompat="@drawable/ic_face_android"  />
 
         <ImageButton
             android:layout_marginLeft="10dp"
             android:layout_marginBottom="10dp"
             android:onClick="onCardClick"
-            app:srcCompat="@drawable/ic_face_down" />
+            app:srcCompat="@drawable/ic_face_android"  />
 
         <ImageButton
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:onClick="onCardClick"
-            app:srcCompat="@drawable/ic_face_down" />
+            app:srcCompat="@drawable/ic_face_android"  />
 
         <ImageButton
             android:onClick="onCardClick"
-            app:srcCompat="@drawable/ic_face_down" />
+            app:srcCompat="@drawable/ic_face_android"  />
 
         <ImageButton
             android:layout_marginLeft="10dp"
             android:layout_marginBottom="10dp"
             android:onClick="onCardClick"
-            app:srcCompat="@drawable/ic_face_down" />
+            app:srcCompat="@drawable/ic_face_android"  />
 
         <ImageButton
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:onClick="onCardClick"
-            app:srcCompat="@drawable/ic_face_down" />
+            app:srcCompat="@drawable/ic_face_android"  />
 
         <ImageButton
             android:onClick="onCardClick"
-            app:srcCompat="@drawable/ic_face_down" />
+            app:srcCompat="@drawable/ic_face_android"  />
 
         <ImageButton
             android:layout_marginLeft="10dp"
             android:layout_marginBottom="10dp"
             android:onClick="onCardClick"
-            app:srcCompat="@drawable/ic_face_down" />
+            app:srcCompat="@drawable/ic_face_android"  />
+
+        <ImageButton
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:onClick="onCardClick"
+            app:srcCompat="@drawable/ic_face_android"  />
+
+        <ImageButton
+            android:onClick="onCardClick"
+            app:srcCompat="@drawable/ic_face_android" />
+
+        <ImageButton
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:onClick="onCardClick"
+            app:srcCompat="@drawable/ic_face_android"  />
+
 
     </GridLayout>
+
     <LinearLayout
         android:id="@+id/btn_layout"
         android:layout_width="match_parent"
@@ -127,7 +135,8 @@
             android:layout_weight="1"
             android:layout_marginRight="5dp"
             android:onClick="onNewGameClick"
-            android:text="@string/new_game" />
+            android:text="@string/new_game"
+            android:background="@drawable/button_color"/>
 
 
         <Button
@@ -137,9 +146,11 @@
             android:layout_weight="1"
             android:onClick="onClickStop"
             android:text="@string/stop"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/button_color"/>
 
         <Button
+            android:background="@drawable/button_color"
             android:id="@+id/start_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -149,8 +160,6 @@
             android:text="@string/start"
             app:layout_constraintEnd_toEndOf="@id/timer" />
     </LinearLayout>
-
-
 
 
 
