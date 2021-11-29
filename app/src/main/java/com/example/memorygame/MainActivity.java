@@ -43,8 +43,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        MediaPlayer game_music = MediaPlayer.create(MainActivity.this,R.raw.game_music);
-        game_music.start();
+
 
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(
