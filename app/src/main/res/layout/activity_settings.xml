@@ -6,7 +6,16 @@
     android:layout_height="match_parent"
     android:background="@drawable/main_background">
 
-
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:clickable="true"
+        android:onClick="onBackClick"
+        android:src="@drawable/ic_back_button"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-27dp"
+        tools:layout_editor_absoluteY="16dp"
+        />
     <Switch
         android:id="@+id/music_off"
         android:layout_width="142dp"
