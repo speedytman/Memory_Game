@@ -45,7 +45,7 @@ public class HomeActivity extends AppCompatActivity {
 
     public void onSettingsButtonClick(View view){
 
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
     // Help button that goes to separate page
