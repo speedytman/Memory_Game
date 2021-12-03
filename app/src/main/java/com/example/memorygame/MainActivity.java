@@ -13,6 +13,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import android.os.Handler;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.GridLayout;
@@ -23,6 +24,7 @@ import android.widget.Toast;
 
 import java.util.Locale;
 import java.util.Random;
+import java.util.concurrent.Semaphore;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,12 +40,16 @@ public class MainActivity extends AppCompatActivity {
     private boolean isRunning;
     private boolean wasRunning;
     TextView textView;
+    private MediaPlayer game_music;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+     game_music = MediaPlayer.create(MainActivity.this,R.raw.game_music);
+     game_music.setLooping(true);
+     game_music.start();
 
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(
@@ -97,6 +103,12 @@ public class MainActivity extends AppCompatActivity {
         if (wasRunning) {
             isRunning = true;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        game_music.stop();
     }
 
     public void onBackHomeClick (View view) {

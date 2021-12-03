@@ -18,8 +18,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        MediaPlayer game_music = MediaPlayer.create(HomeActivity.this,R.raw.game_music);
-        game_music.start();
+
 
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(
@@ -30,6 +29,8 @@ public class HomeActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_FULLSCREEN);
     }
+
+
 
     public void onHelpButtonClick(View view){
 
