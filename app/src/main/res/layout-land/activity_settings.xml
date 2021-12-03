@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:clickable="true"
+        android:onClick="onBackClick"
+        android:src="@drawable/ic_back_button"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-27dp"
+        tools:layout_editor_absoluteY="16dp"
+        />
+
+    <Switch
+        android:id="@+id/music_off"
+        android:layout_width="142dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="100dp"
+        android:text="Music OFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.971"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.718" />
+
+    <Switch
+        android:id="@+id/sound_off"
+        android:layout_width="146dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="207dp"
+        android:layout_marginTop="228dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="348dp"
+        android:text="Sound OFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.433" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="477dp"
+        android:layout_marginEnd="86dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="147dp"
+        android:layout_marginEnd="73dp"
+        android:text="Leave Us A Rating!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.031"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.326" />
+
+    <RatingBar
+        android:id="@+id/ratingBar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="159dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
