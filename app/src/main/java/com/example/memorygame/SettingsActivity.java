@@ -13,7 +13,7 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
     }
-    public void onBackClick (View view) {
+    public void onBacktoHomeClick(View view) {
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
     }
