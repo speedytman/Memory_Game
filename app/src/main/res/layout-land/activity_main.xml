@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/main_background"
+    >
+
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:clickable="true"
+        android:onClick="onBackHomeClick"
+        android:src="@drawable/ic_back_button"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-50dp"
+        tools:layout_editor_absoluteY="dp" />
+
+    <TextView
+        android:id="@+id/timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/card_grid"
+        android:layout_marginBottom="640dp"
+        android:gravity="center_horizontal"
+        android:text="TextView"
+        android:textAppearance="@android:style/TextAppearance.Medium"
+        android:textSize="18sp"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <GridLayout
+        android:id="@+id/card_grid"
+        android:layout_width="580dp"
+        android:layout_height="286dp"
+        android:layout_margin="40dp"
+        android:layout_marginTop="108dp"
+        android:columnCount="6"
+        android:rowCount="2"
+        app:layout_constraintHorizontal_bias="0.637"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/timer">
+
+
+        <ImageButton
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:onClick="onCardClick"
+            app:srcCompat="@drawable/ic_face_android" />
+
+        <ImageButton
+            android:onClick="onCardClick"
+            app:srcCompat="@drawable/ic_face_android"  />
+
+        <ImageButton
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:onClick="onCardClick"
+            app:srcCompat="@drawable/ic_face_android"  />
+
+        <ImageButton
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:onClick="onCardClick"
+            app:srcCompat="@drawable/ic_face_android"  />
+
+        <ImageButton
+            android:onClick="onCardClick"
+            app:srcCompat="@drawable/ic_face_android"  />
+
+        <ImageButton
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:onClick="onCardClick"
+            app:srcCompat="@drawable/ic_face_android"  />
+
+        <ImageButton
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:onClick="onCardClick"
+            app:srcCompat="@drawable/ic_face_android"  />
+
+        <ImageButton
+            android:onClick="onCardClick"
+            app:srcCompat="@drawable/ic_face_android"  />
+
+        <ImageButton
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:onClick="onCardClick"
+            app:srcCompat="@drawable/ic_face_android"  />
+
+        <ImageButton
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:onClick="onCardClick"
+            app:srcCompat="@drawable/ic_face_android"  />
+
+        <ImageButton
+            android:onClick="onCardClick"
+            app:srcCompat="@drawable/ic_face_android" />
+
+        <ImageButton
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:onClick="onCardClick"
+            app:srcCompat="@drawable/ic_face_android"  />
+
+
+    </GridLayout>
+
+    <LinearLayout
+        android:id="@+id/btn_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+        <Button
+            android:id="@+id/new_game_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="5dp"
+            android:onClick="onNewGameClick"
+            android:text="@string/new_game"
+            android:background="@drawable/button_color"/>
+
+
+        <Button
+            android:id="@+id/stop_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onClickStop"
+            android:text="@string/stop"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/button_color"/>
+
+        <Button
+            android:background="@drawable/button_color"
+            android:id="@+id/start_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:onClick="onClickStart"
+            android:text="@string/start"
+            app:layout_constraintEnd_toEndOf="@id/timer" />
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
