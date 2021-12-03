@@ -42,8 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
      game_music = MediaPlayer.create(MainActivity.this,R.raw.game_music);
      game_music.setLooping(true);
-     boolean shouldPlay;
-     shouldPlay = false;
      game_music.start();
 
         View decorView = getWindow().getDecorView();
@@ -293,8 +291,9 @@ public class MainActivity extends AppCompatActivity {
                 else{
                     if (mGame.isGameOver()) {
                         isRunning = false;
-                        Toast.makeText(this, R.string.congrats, Toast.LENGTH_SHORT).show();
+                        game_music.stop();
                         flipCount = 0;
+                        Toast.makeText(this, R.string.congrats, Toast.LENGTH_SHORT).show();
                     }
                     else{
                         flipCount = 0;
