@@ -1,10 +1,7 @@
 package com.example.memorygame;
 
 
-import static android.os.CountDownTimer.*;
-
 import static com.example.memorygame.MemoryGame.GRID_COL;
-import static com.example.memorygame.MemoryGame.GRID_ROW;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,18 +10,13 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import android.os.Handler;
-import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.GridLayout;
-import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Locale;
-import java.util.Random;
-import java.util.concurrent.Semaphore;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private int secs = 0;
     private boolean isRunning;
     private boolean wasRunning;
+    public boolean shouldPlay;
     TextView textView;
     private MediaPlayer game_music;
 
@@ -49,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
      game_music = MediaPlayer.create(MainActivity.this,R.raw.game_music);
      game_music.setLooping(true);
+     boolean shouldPlay;
+     shouldPlay = false;
      game_music.start();
 
         View decorView = getWindow().getDecorView();
@@ -91,9 +86,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause()
     {
+        if(game_music.isPlaying()) {
+            game_music.stop();
+        }
         super.onPause();
         wasRunning = isRunning;
         isRunning = false;
+
     }
 
     @Override
@@ -106,9 +105,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        game_music.stop();
+    protected void onStop() {
+        super.onStop();
+            game_music.pause();
+            game_music = null;
+
+
     }
 
     public void onBackHomeClick (View view) {

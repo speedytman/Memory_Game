@@ -10,7 +10,7 @@
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:clickable="true"
-        android:onClick="onBackClick"
+        android:onClick="onBacktoHomeClick"
         android:src="@drawable/ic_back_button"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="-27dp"
