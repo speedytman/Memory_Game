@@ -12,32 +12,37 @@
         android:id="@+id/imageView"
         android:layout_width="100dp"
         android:layout_height="50dp"
+        android:layout_marginTop="5dp"
         android:clickable="true"
         android:onClick="onBackClick"
         android:src="@drawable/ic_back_button"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-27dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/instructionsTextView"
-        android:layout_width="599dp"
-        android:layout_height="58dp"
+        android:layout_width="455dp"
+        android:layout_height="57dp"
         android:layout_margin="100dp"
+        android:layout_marginStart="146dp"
         android:gravity="center"
         android:text="@string/help_instructions"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="78dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="258dp" />
 
     <ImageView
         android:id="@+id/gameImage"
-        android:layout_width="582dp"
-        android:layout_height="254dp"
+        android:layout_width="508dp"
+        android:layout_height="199dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="86dp"
         android:contentDescription="@string/game_grid"
         android:src="@drawable/help_image"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="77dp" />
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

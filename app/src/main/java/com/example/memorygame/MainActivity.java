@@ -3,6 +3,7 @@ package com.example.memorygame;
 
 import static com.example.memorygame.MemoryGame.GRID_COL;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean shouldPlay;
     TextView textView;
     private MediaPlayer game_music;
+    private final String GAME_STATE = "gameState";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +59,10 @@ public class MainActivity extends AppCompatActivity {
         mCardGrid = findViewById(R.id.card_grid);
         mGame = new MemoryGame();
 
-        startGame();
+
+            startGame();
+
+
 
         if (savedInstanceState != null) {
             secs = savedInstanceState.getInt("seconds");
@@ -64,10 +70,12 @@ public class MainActivity extends AppCompatActivity {
             isRunning = savedInstanceState.getBoolean("running");
 
             wasRunning = savedInstanceState.getBoolean("wasRunning");
+
         }
         runTimer();
 
     }
+
 
     @Override
     protected void onSaveInstanceState(
