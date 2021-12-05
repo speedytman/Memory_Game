@@ -34,6 +34,7 @@
             android:paddingTop="100dp"
             android:layout_height="wrap_content"
             android:soundEffectsEnabled="false"
+            android:onClick="onMusicSwitch"
             android:text="MUSIC OFF" />
 
         <TextView
