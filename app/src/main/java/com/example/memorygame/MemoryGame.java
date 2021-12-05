@@ -23,6 +23,35 @@ public class MemoryGame {
         mCardFlippedGrid = new boolean[GRID_ROW][GRID_COL];
     }
 
+
+
+
+
+    public String getState() {
+        StringBuilder boardString = new StringBuilder();
+        for(int row=0; row<4; row++){
+            for(int col=0; col<6; col++){
+                char value = mCardFlippedGrid[row][col]?'T':'F';
+                boardString.append(value);
+            }
+        }
+        return boardString.toString();
+    }
+
+    public void setState(String gameState) {
+        int index= 0;
+        for(int row=0; row<4; row++) {
+            for (int col=0; col<6; col++) {
+                mCardFlippedGrid[row][col] = gameState.charAt(index)=='T';
+                index++;
+            }
+        }
+    }
+
+
+
+
+
     public void newGame() {
         //Log.d("Stuff", "New Game");
         List<Integer> tempList = Arrays.asList(faceValues);
