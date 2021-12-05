@@ -4,58 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_background">
+    android:background="@drawable/main_background"
+    tools:context=".SettingsActivity">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:onClick="onBackClick"
+        android:src="@drawable/ic_back_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints,OnClick" />
 
 
-    <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="601dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp"
-        tools:ignore="MissingConstraints">
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="86dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        tools:ignore="SpeakableTextPresentCheck" />
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:clickable="true"
-            android:onClick="onBackHomeClick"
-            android:src="@drawable/ic_back_button"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="-27dp"
-            tools:layout_editor_absoluteY="16dp"
-            />
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:text="@string/rating"
+        android:textAlignment="center"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/submit_button" />
 
-        <Switch
-            android:id="@+id/music_off"
-            android:layout_width="300dp"
-            android:clickable="true"
-            android:gravity="center"
-            android:paddingTop="100dp"
-            android:layout_height="wrap_content"
-            android:soundEffectsEnabled="false"
-            android:onClick="onMusicSwitch"
-            android:text="MUSIC OFF" />
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="386dp"
+        android:layout_height="259dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="12dp"
+        android:ems="10"
+        android:inputType="textLongMessage"
+        android:text="Type here..."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/rating"
-            android:layout_marginTop="100dp"
-            android:textSize="35sp"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            />
-
-        <RatingBar
-            android:id="@+id/rating"
-            android:layout_width="300dp"
-            android:layout_margin="@dimen/cardview_default_radius"
-            android:paddingTop="100dp"
-            android:paddingLeft="65dp"
-            android:clickable="true"
-            android:layout_height="wrap_content" />
-
-
-    </LinearLayout>
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="161dp"
+        android:text="Submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 </androidx.constraintlayout.widget.ConstraintLayout>

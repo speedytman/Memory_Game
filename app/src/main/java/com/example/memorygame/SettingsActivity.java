@@ -13,19 +13,12 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
-        music_off = (Switch) findViewById(R.id.music_off);
+        setContentView(R.layout.activity_settings);;
     }
 
     public void onBackHomeClick (View view) {
         Intent intent = new Intent(SettingsActivity.this, HomeActivity.class);
         startActivity(intent);
-    }
-     public void onMusicSwitch (View view){
-         // if (music_off.isChecked())
-           //  music_off.stop();
-
-
     }
 
 

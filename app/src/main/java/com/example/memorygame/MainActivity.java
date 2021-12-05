@@ -12,6 +12,7 @@ import android.os.Bundle;
 
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private final String GAME_STATE = "gameState";
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
      game_music = MediaPlayer.create(MainActivity.this,R.raw.game_music);
      game_music.setLooping(true);
      game_music.start();
+
+
 
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(
@@ -189,7 +193,6 @@ public class MainActivity extends AppCompatActivity {
             card.setImageResource(R.drawable.ic_face_android);
         }
     }
-
 
 
 
