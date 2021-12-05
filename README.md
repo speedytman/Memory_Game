@@ -9,8 +9,7 @@ music is playing and they are timed for how long it takes them to match the card
 start the timer as well as a new game button. On the home page, we created a new game, rate us, and help buttons for the user.
 
 **How It Was Implemented**
-> We decided to make a memory card game using Java and Kotlin in Android Studio. To make the card faces we used a GridLayout and 
-imageButtons. We also imageButtons on the game page for pausing the timer, restarting the timer, and starting a new game; as well 
+> We decided to make a memory card game using Java and Kotlin classes in Android Studio. To make the card faces we used a GridLayout and imageButtons. We also imageButtons on the game page for pausing the timer, restarting the timer, and starting a new game; as well 
 as for the home page for starting a new game, rating the game, and a help page.
 
 **Issues and Further Work**
