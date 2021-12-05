@@ -27,7 +27,7 @@ public class MemoryGame {
 
 
 
-    public String getState() {
+    /*public String getState() {
         StringBuilder boardString = new StringBuilder();
         for(int row=0; row<4; row++){
             for(int col=0; col<6; col++){
@@ -46,7 +46,7 @@ public class MemoryGame {
                 index++;
             }
         }
-    }
+    }*/
 
 
 

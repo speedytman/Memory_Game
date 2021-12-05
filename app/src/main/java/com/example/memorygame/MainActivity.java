@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
     private int secs = 0;
     private boolean isRunning;
     private boolean wasRunning;
-    public boolean shouldPlay;
     TextView textView;
     private MediaPlayer game_music;
     private final String GAME_STATE = "gameState";
@@ -69,11 +68,17 @@ public class MainActivity extends AppCompatActivity {
         if(savedInstanceState == null) {
             startGame();
         }
+       /* else {
+            String gameState = savedInstanceState.getString(GAME_STATE);
+            mGame.setState(gameState);
+            setFaceValues();
+        }
+
 
         if(savedInstanceState != null){
 
             mGame.getState();
-        }
+        }*/
 
         if (savedInstanceState != null) {
             secs = savedInstanceState.getInt("seconds");
@@ -81,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
             isRunning = savedInstanceState.getBoolean("running");
 
             wasRunning = savedInstanceState.getBoolean("wasRunning");
-
         }
         runTimer();
 
@@ -99,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
                 .putBoolean("running", isRunning);
         savedInstanceState
                 .putBoolean("wasRunning", wasRunning);
-        savedInstanceState.putString(GAME_STATE, mGame.getState());
     }
 
     @Override
