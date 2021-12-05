@@ -72,7 +72,9 @@ public class MainActivity extends AppCompatActivity {
 
         if(savedInstanceState != null){
 
-            mGame.getState();
+            String gameState = savedInstanceState.getString(GAME_STATE);
+            mGame.setState(gameState);
+
         }
 
         if (savedInstanceState != null) {
@@ -121,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
         if (wasRunning) {
             isRunning = true;
         }
+        game_music.start();
     }
 
     @Override
@@ -210,8 +213,10 @@ public class MainActivity extends AppCompatActivity {
         isRunning = false;
         secs = 0;
 
-        startGame();
+        game_music.reset();
         game_music.start();
+
+        startGame();
     }
 
     public void onCardClick(View view) {
