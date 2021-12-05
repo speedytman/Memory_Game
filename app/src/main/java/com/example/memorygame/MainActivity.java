@@ -211,6 +211,7 @@ public class MainActivity extends AppCompatActivity {
         secs = 0;
 
         startGame();
+        game_music.start();
     }
 
     public void onCardClick(View view) {
