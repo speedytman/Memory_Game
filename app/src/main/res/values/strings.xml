@@ -8,8 +8,11 @@
     <string name="stop">Stop</string>
     <string name="reset">Reset</string>
     <string name="home_play">Play</string>
-    <string name="home_rate">Rate</string>
+    <string name="home_rate">Rate Us!</string>
+    <string name="submit">Submit</string>
+    <string name="review">Leave a review here&#8230;</string>
     <string name="help_instructions">Flip over each card and find its match in the least amount of time to win!</string>
     <string name="game_grid">Game Grid</string>
     <string name="rating">Let Us Know How We Did! Leave a Review! </string>
+    <string name="back_button">Back Button</string>
 </resources>
