@@ -70,6 +70,10 @@ public class MainActivity extends AppCompatActivity {
             startGame();
         }
 
+        if(savedInstanceState != null){
+
+            mGame.getState();
+        }
 
         if (savedInstanceState != null) {
             secs = savedInstanceState.getInt("seconds");
@@ -305,12 +309,14 @@ public class MainActivity extends AppCompatActivity {
                     flipCount = 0;
                 }
                 else{
+
                     if (mGame.isGameOver()) {
-                        isRunning = false;
-                        game_music.stop();
+                       isRunning = false;
+                       game_music.stop();
+                        Toast.makeText(getApplicationContext(), R.string.congrats, Toast.LENGTH_LONG).show();
                         flipCount = 0;
-                        Toast.makeText(this, R.string.congrats, Toast.LENGTH_SHORT).show();
                     }
+
                     else{
                         flipCount = 0;
                     }
