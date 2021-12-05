@@ -64,8 +64,11 @@ public class MainActivity extends AppCompatActivity {
         mGame = new MemoryGame();
 
 
-            startGame();
 
+
+        if(savedInstanceState == null) {
+            startGame();
+        }
 
 
         if (savedInstanceState != null) {
@@ -81,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
     @Override
     protected void onSaveInstanceState(
             Bundle savedInstanceState) {
@@ -91,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
                 .putBoolean("running", isRunning);
         savedInstanceState
                 .putBoolean("wasRunning", wasRunning);
+        savedInstanceState.putString(GAME_STATE, mGame.getState());
     }
 
     @Override
