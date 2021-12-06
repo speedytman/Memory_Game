@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
      game_music = MediaPlayer.create(MainActivity.this,R.raw.game_music);
      game_music.setLooping(true);
+
      game_music.start();
 
 
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         if(savedInstanceState == null) {
             startGame();
         }
-        /*else {
+       /* else {
             String gameState = savedInstanceState.getString(GAME_STATE);
             mGame.setState(gameState);
             setFaceValues();
@@ -86,6 +87,9 @@ public class MainActivity extends AppCompatActivity {
             isRunning = savedInstanceState.getBoolean("running");
 
             wasRunning = savedInstanceState.getBoolean("wasRunning");
+
+            // savedInstanceState.putString(GAME_STATE, mGame.getState());
+
         }
         runTimer();
 
@@ -104,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
         savedInstanceState
                 .putBoolean("wasRunning", wasRunning);
     }
+
 
     @Override
     protected void onPause()
@@ -125,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
             isRunning = true;
         }
         if (game_music == null){
+            game_music.setLooping(true);
             game_music.start();
         }
     }
@@ -148,6 +154,8 @@ public class MainActivity extends AppCompatActivity {
     public void onClickStart(View view) {
             isRunning = true;
             if (game_music == null) {
+                game_music.getDuration();
+                game_music.setLooping(true);
                 game_music.start();
             }
 
