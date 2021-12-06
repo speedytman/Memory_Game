@@ -222,10 +222,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         if(game_music == null) {
-            game_music.isLooping();
-            game_music.reset();
             game_music.start();
         }
+        game_music.start();
         startGame();
     }
 
@@ -328,7 +327,8 @@ public class MainActivity extends AppCompatActivity {
 
                     if (mGame.isGameOver()) {
                        isRunning = false;
-                       game_music.stop();
+                       game_music.pause();
+                       game_music.seekTo(0);
                         Toast.makeText(getApplicationContext(), R.string.congrats, Toast.LENGTH_LONG).show();
                     }
                     flipCount = 0;
