@@ -87,34 +87,99 @@ public class MainActivity extends AppCompatActivity {
 
             wasRunning = savedInstanceState.getBoolean("wasRunning");
 
-            /*boolean[][] flippedCards = mGame.getFlippedCards();
+            boolean[][] flippedCards = mGame.getFlippedCards();
             int[][] cardVals = mGame.getCardValues();
             int[] ids = {R.id.card_00, R.id.card_01, R.id.card_02, R.id.card_10, R.id.card_11, R.id.card_12, R.id.card_20, R.id.card_21, R.id.card_22, R.id.card_30, R.id.card_31, R.id.card_32};
             for(int i=0; i < 4; i++) {
                 for (int j = 0; j < 3; j++) {
                     if (flippedCards[i][j]) {
-                        ImageButton card = (ImageButton) mCardGrid.getChildAt(ids[i + j]);
-                        if (cardVals[i][j] == 1) {
-                            card.setImageResource(R.drawable.ic_face_one);
+                        if(i == 0){
+                            ImageButton card = (ImageButton) mCardGrid.getChildAt(ids[j]);
+                            if (cardVals[i][j] == 1) {
+                                card.setImageResource(R.drawable.ic_face_one);
+                            }
+                            if (cardVals[i][j] == 2) {
+                                card.setImageResource(R.drawable.ic_face_two);
+                            }
+                            if (cardVals[i][j] == 3) {
+                                card.setImageResource(R.drawable.ic_face_three);
+                            }
+                            if (cardVals[i][j] == 4) {
+                                card.setImageResource(R.drawable.ic_face_four);
+                            }
+                            if (cardVals[i][j] == 5) {
+                                card.setImageResource(R.drawable.ic_face_five);
+                            }
+                            if (cardVals[i][j] == 6) {
+                                card.setImageResource(R.drawable.ic_face_six);
+                            }
                         }
-                        if (cardVals[i][j] == 2) {
-                            card.setImageResource(R.drawable.ic_face_two);
+                        if(i == 1){
+                            ImageButton card = (ImageButton) mCardGrid.getChildAt(ids[j+3]);
+                            if (cardVals[i][j] == 1) {
+                                card.setImageResource(R.drawable.ic_face_one);
+                            }
+                            if (cardVals[i][j] == 2) {
+                                card.setImageResource(R.drawable.ic_face_two);
+                            }
+                            if (cardVals[i][j] == 3) {
+                                card.setImageResource(R.drawable.ic_face_three);
+                            }
+                            if (cardVals[i][j] == 4) {
+                                card.setImageResource(R.drawable.ic_face_four);
+                            }
+                            if (cardVals[i][j] == 5) {
+                                card.setImageResource(R.drawable.ic_face_five);
+                            }
+                            if (cardVals[i][j] == 6) {
+                                card.setImageResource(R.drawable.ic_face_six);
+                            }
                         }
-                        if (cardVals[i][j] == 3) {
-                            card.setImageResource(R.drawable.ic_face_three);
+                        if(i == 2){
+                            ImageButton card = (ImageButton) mCardGrid.getChildAt(ids[j+6]);
+                            if (cardVals[i][j] == 1) {
+                                card.setImageResource(R.drawable.ic_face_one);
+                            }
+                            if (cardVals[i][j] == 2) {
+                                card.setImageResource(R.drawable.ic_face_two);
+                            }
+                            if (cardVals[i][j] == 3) {
+                                card.setImageResource(R.drawable.ic_face_three);
+                            }
+                            if (cardVals[i][j] == 4) {
+                                card.setImageResource(R.drawable.ic_face_four);
+                            }
+                            if (cardVals[i][j] == 5) {
+                                card.setImageResource(R.drawable.ic_face_five);
+                            }
+                            if (cardVals[i][j] == 6) {
+                                card.setImageResource(R.drawable.ic_face_six);
+                            }
                         }
-                        if (cardVals[i][j] == 4) {
-                            card.setImageResource(R.drawable.ic_face_four);
-                        }
-                        if (cardVals[i][j] == 5) {
-                            card.setImageResource(R.drawable.ic_face_five);
-                        }
-                        if (cardVals[i][j] == 6) {
-                            card.setImageResource(R.drawable.ic_face_six);
+                        if(i == 3){
+                            ImageButton card = (ImageButton) mCardGrid.getChildAt(ids[j+9]);
+                            if (cardVals[i][j] == 1) {
+                                card.setImageResource(R.drawable.ic_face_one);
+                            }
+                            if (cardVals[i][j] == 2) {
+                                card.setImageResource(R.drawable.ic_face_two);
+                            }
+                            if (cardVals[i][j] == 3) {
+                                card.setImageResource(R.drawable.ic_face_three);
+                            }
+                            if (cardVals[i][j] == 4) {
+                                card.setImageResource(R.drawable.ic_face_four);
+                            }
+                            if (cardVals[i][j] == 5) {
+                                card.setImageResource(R.drawable.ic_face_five);
+                            }
+                            if (cardVals[i][j] == 6) {
+                                card.setImageResource(R.drawable.ic_face_six);
+                            }
                         }
                     }
                 }
-            }*/
+            }
         }
         runTimer();
 
