@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         if(savedInstanceState == null) {
             startGame();
         }
-       /* else {
+        /*else {
             String gameState = savedInstanceState.getString(GAME_STATE);
             mGame.setState(gameState);
             setFaceValues();
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         if(savedInstanceState != null){
 
             mGame.getState();
-        }*/
+       } */
 
         if (savedInstanceState != null) {
             secs = savedInstanceState.getInt("seconds");
@@ -124,13 +124,17 @@ public class MainActivity extends AppCompatActivity {
         if (wasRunning) {
             isRunning = true;
         }
+        if (game_music == null){
+            game_music.start();
+        }
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-            game_music.pause();
-            game_music = null;
+        if(game_music.isPlaying()) {
+            game_music.stop();
+        }
 
 
     }
@@ -143,6 +147,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickStart(View view) {
             isRunning = true;
+            if (game_music == null) {
+                game_music.start();
+            }
 
     }
 
@@ -213,8 +220,13 @@ public class MainActivity extends AppCompatActivity {
         isRunning = false;
         secs = 0;
 
+
+        if(game_music == null) {
+            game_music.isLooping();
+            game_music.reset();
+            game_music.start();
+        }
         startGame();
-        game_music.start();
     }
 
     public void onCardClick(View view) {
@@ -318,12 +330,8 @@ public class MainActivity extends AppCompatActivity {
                        isRunning = false;
                        game_music.stop();
                         Toast.makeText(getApplicationContext(), R.string.congrats, Toast.LENGTH_LONG).show();
-                        flipCount = 0;
                     }
-
-                    else{
-                        flipCount = 0;
-                    }
+                    flipCount = 0;
                 }
             }
             else{
