@@ -203,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause()
     {
         if(game_music.isPlaying()) {
-            game_music.stop();
+            game_music.pause();
         }
         super.onPause();
         wasRunning = isRunning;
@@ -244,12 +244,13 @@ public class MainActivity extends AppCompatActivity {
             if (game_music == null) {
                 game_music.start();
             }
-
+        game_music.start();
     }
 
     public void onClickStop(View view)
     {
         isRunning = false;
+        game_music.pause();
     }
 
 
