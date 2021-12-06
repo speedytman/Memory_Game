@@ -52,64 +52,76 @@
 
 
         <ImageButton
+            android:id="@+id/card_00"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:onClick="onCardClick"
             app:srcCompat="@drawable/ic_face_android" />
 
         <ImageButton
+            android:id="@+id/card_01"
             android:onClick="onCardClick"
             app:srcCompat="@drawable/ic_face_android" />
 
         <ImageButton
+            android:id="@+id/card_02"
             android:layout_marginLeft="10dp"
             android:layout_marginBottom="10dp"
             android:onClick="onCardClick"
             app:srcCompat="@drawable/ic_face_android" />
 
         <ImageButton
+            android:id="@+id/card_10"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:onClick="onCardClick"
             app:srcCompat="@drawable/ic_face_android" />
 
         <ImageButton
+            android:id="@+id/card_11"
             android:onClick="onCardClick"
             app:srcCompat="@drawable/ic_face_android" />
 
         <ImageButton
+            android:id="@+id/card_12"
             android:layout_marginLeft="10dp"
             android:layout_marginBottom="10dp"
             android:onClick="onCardClick"
             app:srcCompat="@drawable/ic_face_android" />
 
         <ImageButton
+            android:id="@+id/card_20"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:onClick="onCardClick"
             app:srcCompat="@drawable/ic_face_android" />
 
         <ImageButton
+            android:id="@+id/card_21"
             android:onClick="onCardClick"
             app:srcCompat="@drawable/ic_face_android" />
 
         <ImageButton
+            android:id="@+id/card_22"
             android:layout_marginLeft="10dp"
             android:layout_marginBottom="10dp"
             android:onClick="onCardClick"
             app:srcCompat="@drawable/ic_face_android" />
 
         <ImageButton
+            android:id="@+id/card_30"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:onClick="onCardClick"
             app:srcCompat="@drawable/ic_face_android" />
 
         <ImageButton
+            android:id="@+id/card_31"
             android:onClick="onCardClick"
             app:srcCompat="@drawable/ic_face_android" />
 
         <ImageButton
+            android:id="@+id/card_32"
             android:layout_marginLeft="10dp"
             android:layout_marginBottom="10dp"
             android:onClick="onCardClick"

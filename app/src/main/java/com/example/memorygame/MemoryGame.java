@@ -76,6 +76,13 @@ public class MemoryGame {
         mCardFlippedGrid[row][col] = false;
     }
 
+    public boolean[][] getFlippedCards(){
+        return mCardFlippedGrid;
+    }
+    public int[][] getCardValues(){
+        return mCardGrid;
+    }
+
 
 
     public boolean doCardsMatch() {
